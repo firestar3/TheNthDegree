@@ -1,11 +1,14 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-if (!process.env.API_KEY) {
-  console.warn("API_KEY environment variable not set. Gemini API calls will fail.");
+// Fix: Updated warning to reflect the change to Vite's `import.meta.env` and `VITE_` prefix.
+if (!import.meta.env.VITE_API_KEY) {
+  console.warn("VITE_API_KEY environment variable not set. Gemini API calls will fail.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Fix: Switched to Vite's standard `import.meta.env` for accessing environment variables.
+// This requires the environment variable to be named VITE_API_KEY.
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
 export const generateMathProblem = async (difficulty: 'Easy' | 'Medium' | 'Hard') => {
   try {
