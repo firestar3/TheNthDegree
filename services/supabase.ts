@@ -1,7 +1,10 @@
-
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://bqjbnadtujyyyvpfxaac.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxamJuYWR0dWp5eXl2cGZ4YWFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyMDQ3MzYsImV4cCI6MjA4Njc4MDczNn0.nsPUwKLONYhzjJ6YOsbVIV1BcezFrJ-PnxjpUMFG3fo';
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("Supabase URL and Anon Key must be provided in environment variables. Please check your Vercel project settings.");
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);

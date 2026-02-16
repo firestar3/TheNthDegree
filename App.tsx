@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Session } from '@supabase/supabase-js';
 import { ThemeProvider } from './hooks/useTheme';
 import { supabase } from './services/supabase';
@@ -43,7 +43,7 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <HashRouter>
+      <BrowserRouter>
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
           <Header session={session} />
           <main className="p-4 sm:p-6 md:p-8">
@@ -57,7 +57,7 @@ const App = () => {
             </Routes>
           </main>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
