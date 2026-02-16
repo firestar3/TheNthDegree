@@ -1,0 +1,5 @@
+{
+  "name": "The Nth Degree",
+  "description": "A virtual platform for students to compete in math contests. Features user authentication, live contests, practice zones powered by AI, and leaderboards. Styled with a sleek dark/light theme.",
+  "requestFramePermissions": []
+}
